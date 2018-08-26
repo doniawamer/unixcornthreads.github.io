@@ -1,0 +1,174 @@
+ header { 
+  background: var(--dark_shade);
+  text-align: center;
+  position: fixed;
+  top:0;
+  z-index: 999;
+  width: 100%;
+}
+
+.logo{ 
+  margin: 0;
+  padding: 0;
+  color: var(--light_shade);
+  font-weight: lighter;
+  font-stretch: expanded;
+  font-size: 30px;
+}
+
+.nav-toggle{ 
+  display: none;
+}
+
+.nav-toggle-label{ 
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center; 
+}
+
+.nav-toggle-label span:hover, 
+.nav-toggle-label span:hover::before,
+.nav-toggle-label span:hover::after{
+  background: var(--light_accent);
+  cursor: pointer;
+}
+
+.nav-toggle-label span, 
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+  display: block; 
+  background: var(--light_shade); 
+  height: 2px; 
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before{
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after{
+  top: 7px;
+}
+
+nav{ 
+  background: var(--dark_shade);
+  position: absolute;
+  text-align: right;
+  width: 100%;
+  right: 0;
+  top: 100%;
+  transform: scale(1,0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul{ 
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li{ 
+  margin-bottom: 1em;
+  margin-right: 1em;
+}
+
+ nav a{ 
+  color: var(--light_shade);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: lighter;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover { 
+  color: var(--light_accent);
+}
+
+.nav-toggle:checked ~ nav{
+  transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a{
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 800px){
+   .nav-toggle-label{
+      display: none;
+   } 
+
+   header{
+      display: grid;
+      grid-template-columns: 1fr auto minmax(600px, 4fr) 1fr;
+   }
+
+  .logo{
+     grid-column: 2 / 3;
+  }
+
+  nav{
+    all: unset;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  nav li{
+    margin-left: 2em;
+    margin-bottom: 0;
+  }
+  nav a{
+    opacity: 1;
+    position: relative;
+  }
+
+  nav a::before{
+    content: '';
+    display: block;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--light_accent);
+    position: absolute;
+    top: -.2em;
+    left: 0;
+    right: 0;
+    transform: scale(0,1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before{
+    transform: scale(1,1);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

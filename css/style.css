@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+/* variables and stuff */
+:root {
+--light_shade: rgba(244, 247, 244, 1); /* SNOW DRIFT */
+--light_accent: rgba(114, 137, 176,1); /* WILD BLUE YONDER */
+--main_brand_color: rgba(3, 62, 82, 1); /* ASTRONAUT */
+--dark_accent: rgba(177, 68, 93, 1); /* HIPPIE PINK */
+--dark_shade: rgba(28, 18, 29, 1); /* BLEACHED CEDAR */
+}
+*, *::before, *::after{
+box-sizing: border-box;
+}
+
+body{
+margin: 0;
+padding: 0;
+background: var(--light_shade);
+font-family: 'Roboto Mono', monospace;
+font-weight: thin;
+line-height: 1.5;
+font-size: 12px;
+display: grid;
+/*overflow: hidden;*/
+min-height: 100%;
+grid-template-rows: 45px auto auto 140px;
+grid-template-columns: 100%;
+grid-template-areas: "header" "title" "main" "footer";
+}
+
+header{
+grid-area: header;
+}
+
+.page-title{
+grid-area: title;
+padding-left: 2em;
+padding-top: 1em;
+font-size: 2em;
+}
+.page-title h1{
+font-weight: lighter;
+font-size: 30px;
+}
+
+footer{
+position:fixed;
+bottom:0;
+width:100%;
+height:110px;
+
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* index */
+.main-index{
+grid-area: main;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.landing-img{
+height: 40em;
+width: auto;
+}
+
+.footer-index{
+grid-area: footer;
+background-color: var(--dark_accent);
+color: var(--light_shade);
+font-size: 12px;
+}
+
+/* about me */
+.body-about{
+display: grid;
+min-height: 100%;
+grid-template-rows: 45px auto auto 140px;
+grid-template-columns: 15% auto 15%;
+grid-template-areas: "header header header" "title title title " ". main ." "footer footer footer";
+}
+
+.main-about{
+	grid-area: main;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 2em;
+}
+
+.about-img{
+	height: 20em;
+	width: auto;
+	flex-shrink: 1;
+}
+
+.main-about p{
+	text-align: center;
+	font-size: 13px;
+	line-height: 2em;
+	color: var(--dark_shade);
+	flex-shrink: 1;
+}
+.footer-about{
+grid-area: footer;
+background-color: var(--light_accent);
+color: var(--dark_shade);
+font-size: 15px;
+}
+
+.social-media{
+	position: relative;
+	left: 1em;
+}
+
+.social-media a{
+	color: var(--dark_shade);
+	text-decoration: none;
+}
+
+.social-media a:hover { 
+  color: var(--main_brand_color);
+}
+
+/* Experience */
+.page-title{
+	color: var(--dark_shade);
+}
+
+.footer-experience{
+grid-area: footer;
+background-color: var(--main_brand_color);
+color: var(--light_shade);
+font-size: 15px;
+
+}
+
+.footer-experience a{
+	color: var(--light_shade);
+	text-decoration: none;
+}
+
+.footer-experience a:hover{
+	color: var(--light_accent);
+	text-decoration: none;
+}
+
+/* cards */
+.cards-container {
+  display: flex;
+  margin-top: 7.2rem;
+  -webkit-display: box;
+  -moz-display: box;
+  -ms-display: flexbox;
+  -webkit-display: flex;
+  flex-wrap: wrap;
+
+
+}
+.cards {
+  display: flex;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+@media (min-width: 40rem) {
+  .cards {
+    width: 50%;
+  }
+}
+@media (min-width: 56rem) {
+  .cards {
+    width: 33.3%;
+  }
+}
+.cards .card-item {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light_shade);
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.cards .card-info {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 0 2rem 0 2rem;
+  line-height: 1.4em;
+  color: var(--dark_shade);
+}
+.cards .card-title {
+  font-size: 18px;
+  line-height: 1.2em;
+  color: var(--dark_accent);
+  margin-bottom: 0;
+}
+.card-title{
+	text-align: center;
+}
+
+.card-subtitle{
+	font-size: 13px;
+	margin: 0;
+	color:var(--main_brand_color);
+}
+
+.cards .card-image {
+  height: 200px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 5px 5px 0px 0px;
+  opacity: 0.91;
+}
+
+/* Projects */
+
+
+
+/* media queries */
+@media screen and (max-width: 800px) {
+/* index */
+.landing-img{
+	height: 20em;
+	width: auto;
+	margin-top: 20%;
+}
+.footer-index{
+	font-size: 8px;
+}
+
+/* about me */
+.about-img{
+	height: 15em;
+	width: auto;
+	margin-top: 6%;
+}
+
+.main-about p{
+	font-size: 10px;
+}
+
+.footer-about{
+	font-size: 10px;
+}
+}
+
+@media screen and (max-width: 600px) {
+/* index */
+.landing-img{
+	height: 14em;
+	width: auto;
+	margin-top: 30%;
+}
+}
